@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Java Spring Boot</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <script th:src="@{/jquery-3.6.0.min.js}"></script>
+</head>
+
+<body>
+<div class="container-fluid text-center">
+    <h1>Java 104</h1>
+</div>
+
+<p class="container text-center mt-3">
+    <a th:href="@{/search}" class="searchBtn btn btn-primary">查詢資料</a>
+    <a href="" class="createBtn btn btn-primary disabled">新增資料</a>
+</p>
+
+<div id="allTable" class="container mt-3  w-25">
+    <div class="createTable border border-dark p-2">
+        <form  th:action="@{/save}" method="post" th:object="${data}">
+
+            <input type="hidden" th:field="*{idx}">
+
+            <div class="text-left mt-1">
+                <strong>Insert Data：</strong>
+                <hr>
+            </div>
+
+            <div class="mt-2 mb-2 row">
+                <label class="col-sm-2 col-form-label">Key: </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="formKey" value="" placeholder="請輸入 key" th:field="*{cAes256}">
+                </div>
+            </div>
+            <div class="mt-2 mb-2 row">
+                <label class="col-sm-2 col-form-label">Value: </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="formValue" value="" placeholder="請輸入 value" th:field="*{cBase64}" required>
+                </div>
+            </div>
+            <div class="form-group mt-3 text-center">
+                <button type="button" class="btn-sm p-2" onclick="cancelForm()">Cancle</button>
+                <button type="submit" class="btn-sm p-2">OK</button>
+            </div>
+        </form>
+        <script type="text/javascript">
+            function cancelForm(){
+                window.location = "[[@{/search}]]";
+            }
+        </script>
+    </div>
+</div>
+
+
+
+</body>
+</html>

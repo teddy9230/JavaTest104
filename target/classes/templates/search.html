@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Java Spring Boot</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+
+<body>
+<div class="container-fluid text-center">
+    <h1>Java 104</h1>
+</div>
+
+    <p class="container text-center mt-3">
+        <a href="" class="searchBtn btn btn-primary disabled">查詢資料</a>
+        <a th:href="@{/create}" class="createBtn btn btn-primary">新增資料</a>
+    </p>
+
+    <div id="allTable" class="container mt-3 mb-3 w-25">
+
+        <div class="showTable text-center">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>idx</th>
+                    <th>key</th>
+                    <th>value</th>
+                </tr>
+                </thead>
+                <tbody>
+                <th:block th:each="data : ${listData}">
+                    <tr>
+                        <td>[[${data.idx}]]</td>
+                        <td>[[${data.cAes256}]]</td>
+                        <td>[[${data.cBase64}]]</td>
+                    </tr>
+                </th:block>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

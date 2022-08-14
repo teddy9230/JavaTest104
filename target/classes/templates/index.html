@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Java Spring Boot</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container-fluid text-center">
+    <h1>Java 104</h1>
+</div>
+    <p class="container text-center mt-3">
+        <a th:href="@{/search}" class="searchBtn btn btn-primary">查詢資料</a>
+        <a th:href="@{/create}" class="createBtn btn btn-primary">新增資料</a>
+    </p>
+</body>
+</html>
